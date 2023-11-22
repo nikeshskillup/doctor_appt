@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar/Navbar';
 import Layout from './Components/Landing_Page/Landing_Page';
 import Login from './Components/Login/Login';
 import Signup from './Components/Sign_Up/Sign_Up'
+import InstantConsultation from './Components/InstantConsultationBooking/InstantConsultation'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
               <Route path="/" element={<Layout/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/signup" element={<Signup/>}/>
+              <Route path="/instant-consultation" element={<InstantConsultation />} />
               </Routes>
             
         </BrowserRouter>
