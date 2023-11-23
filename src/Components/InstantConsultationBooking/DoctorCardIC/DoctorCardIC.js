@@ -43,15 +43,15 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
         </div>
         {/* for reference  */}
         {/* <div>
-              <button className='book-appointment-btn'>                    
-                <div>Book Appointment</div>
-              <div>No Booking Fee</div>
+            <button className='book-appointment-btn'>                    
+            <div>Book Appointment</div>
+            <div>No Booking Fee</div>
             </button>
-              </div> */}
+        </div> */}
       </div>
 
 
-      <div className="doctor-card-options-container">
+      {/* <div className="doctor-card-options-container"> */}
        <Popup
           style={{ backgroundColor: '#FFFFFF' }}
           trigger={
@@ -99,7 +99,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
             </div>
           )}
         </Popup> 
-      </div>
+      {/* </div> */}
     </div>
   );
 };
