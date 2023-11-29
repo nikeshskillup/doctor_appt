@@ -15,11 +15,10 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
-// connectToMongo();
-mongoose.connect('mongodb://localhost:27017/frontendcapstone', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+connectToMongo();
+
+mongoose.set('strictQuery', false);
+
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
