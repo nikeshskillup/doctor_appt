@@ -28,7 +28,7 @@ function App() {
                         <Route path="/finddoctor" element={<FindDoctorSearch />} />
                         <Route path='/search/doctors' element={<BookingConsultation />} />
                         <Route path='/reviews' element={<ReviewForm/>}/>
-                        {/* <Route path="/search/doctors" element={<DoctorBook/>} /> */}
+                        <Route path="/notification" element={<Notification/>} />
 
                     </Routes>
                 </Notification>
@@ -37,5 +37,4 @@ function App() {
         </div>
     );
 }
-
 export default App;
