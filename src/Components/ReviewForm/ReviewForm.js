@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import GiveReviews from './GiveReviews';
 import Popup from 'reactjs-popup';
 import { useNavigate } from 'react-router-dom';
+import './GiveReviews.css'
 
 const ReviewForm = () => {
   const [reviewData, setReviewData] = useState({});
@@ -37,10 +38,10 @@ const ReviewForm = () => {
   };
   const navigate = useNavigate();
   useEffect(() => {
-      const authtoken = sessionStorage.getItem("auth-token");
-      if (!authtoken) {
-          navigate("/login");
-      }
+    //   const authtoken = sessionStorage.getItem("auth-token");
+    //   if (!authtoken) {
+    //       navigate("/login");
+    //   }
   }, [])
   return (
     <div style={{ marginTop: '10%' }} className="reviews-container">
@@ -71,7 +72,7 @@ const ReviewForm = () => {
                         className="give-review-button"
                         onClick={() => handleGiveReview(report.serialNumber)}
                       >
-                        Feedback
+                        Click Here
                       </button>
                     }
                     modal
@@ -92,7 +93,7 @@ const ReviewForm = () => {
                   </Popup>
                 ) : (
                   <button className="give-review-button" disabled>
-                    Give Review
+                    Review Given
                   </button>
                 )}
               </td>
