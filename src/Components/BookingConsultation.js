@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import './BookingConsultation.css';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import FindDoctorSearch from './FindDoctorSearch/FindDoctorSearch';
+import  FindDoctor from './FindDoctorSearch/FindDoctorSearch';
 import DoctorCard from './DoctorCard/DoctorCard';
+
 
 const BookingConsultation = () => {
     const [searchParams] = useSearchParams();
     const [doctors, setDoctors] = useState([]);
     const [filteredDoctors, setFilteredDoctors] = useState([]);
     const [isSearched, setIsSearched] = useState(false);
-    
+
     const getDoctorsDetails = () => {
-        fetch('https://api.npoint.io/9a5543d36f1460da2f63')
+        // fetch(`https://api.npoint.io/9a5543d36f1460da2f63`)
+        fetch(`https://api.npoint.io/e3c6cc64bf013781f538/doctors`)
         .then(res => res.json())
         .then(data => {
             if (searchParams.get('speciality')) {
@@ -30,6 +31,7 @@ const BookingConsultation = () => {
         })
         .catch(err => console.log(err));
     }
+
     const handleSearch = (searchText) => {
 
         if (searchText === '') {
@@ -48,7 +50,9 @@ const BookingConsultation = () => {
             setIsSearched(true);
             window.location.reload()
         }
-    };
+        };
+        
+
     const navigate = useNavigate();
     useEffect(() => {
         getDoctorsDetails();
@@ -60,12 +64,12 @@ const BookingConsultation = () => {
 
     return (
         <center>
-            <div  className="searchpage-container">
-            <FindDoctorSearch onSearch={handleSearch} />
+        <div  className="searchpage-container">
+            <FindDoctor onSearch={handleSearch} />
             <div className="search-results-container">
             {isSearched ? (
                 <center>
-                    <h2>{filteredDoctors.length} doctors are available {searchParams.get('location')}</h2>
+                    <h2>{filteredDoctors.length} doctors available in {searchParams.get('location')}</h2>
                     <h3>Book appointments with minimum wait-time & verified doctor details</h3>
                     {filteredDoctors.length > 0 ? (
                     filteredDoctors.map(doctor => <DoctorCard className="doctorcard" {...doctor} key={doctor.name} />)
@@ -82,4 +86,4 @@ const BookingConsultation = () => {
     )
 }
 
-export default BookingConsultation
+export default BookingConsultation;
